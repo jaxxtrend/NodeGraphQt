@@ -16,15 +16,22 @@ classifiers = [
     'Operating System :: OS Independent',
 ]
 
+from _version import __version__ as version
+from pip._internal.req import parse_requirements
+
+install_reqs = parse_requirements('requirements.txt', session='hack')
+reqs = [str(ir.req) for ir in install_reqs]
+
 setuptools.setup(
     name='NodeGraphQt',
-    version='0.0.5',
+    version=version,
     author='Johnny Chan',
     author_email='johnny@chantasticvfx.com',
     description=description,
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/jchanvfx/NodeGraphQt',
+    install_requires=reqs,
     packages=setuptools.find_packages(exclude=["example_nodes"]),
     classifiers=classifiers,
     include_package_data=True,
