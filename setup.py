@@ -16,7 +16,7 @@ classifiers = [
     'Operating System :: OS Independent',
 ]
 
-from _version import __version__ as version
+from NodeGraphQt._version import __version__ as version
 from pip._internal.req import parse_requirements
 
 install_reqs = parse_requirements('requirements.txt', session='hack')
