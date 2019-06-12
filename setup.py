@@ -9,6 +9,8 @@ def load_requirements(fname):
     reqs = parse_requirements(fname, session="test")
     return [str(ir.req) for ir in reqs]
 
+setuptools.setup(install_requires=load_requirements("requirements.txt")),
+
 from NodeGraphQt import __version__ as version
 
 with open('README.md', 'r') as fh:
@@ -33,7 +35,6 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type='text/markdown',
     url='https://github.com/jchanvfx/NodeGraphQt',
-    install_requires=load_requirements("requirements.txt"),
     packages=setuptools.find_packages(exclude=["example_nodes"]),
     classifiers=classifiers,
     include_package_data=True,
