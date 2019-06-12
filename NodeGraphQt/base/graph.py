@@ -23,15 +23,17 @@ class NodeGraph(QtCore.QObject):
     base node graph controller.
     """
 
-    #: signal for when a node has been created in the node graph.
+    #: signal emits the node object when a node is created in the node graph.
     node_created = QtCore.Signal(NodeObject)
-    #: signal for when a node is selected.
+    #: signal emits a list of node ids from the deleted nodes.
+    nodes_deleted = QtCore.Signal(list)
+    #: signal emits the node object when selected in the node graph.
     node_selected = QtCore.Signal(NodeObject)
-    #: signal for when a node is double clicked.
+    #: signal triggered when a node is double clicked and emits the node.
     node_double_clicked = QtCore.Signal(NodeObject)
-    #: signal for when a node has been connected.
+    #: signal for when a node has been connected emits (source port, target port).
     port_connected = QtCore.Signal(Port, Port)
-    #: signal for when a node property has changed.
+    #: signal for when a node property has changed emits (node, property name, property value).
     property_changed = QtCore.Signal(NodeObject, str, object)
     #: signal for when drop data has been added to the graph.
     data_dropped = QtCore.Signal(QtCore.QMimeData, QtCore.QPoint)
@@ -527,6 +529,7 @@ class NodeGraph(QtCore.QObject):
         """
         assert isinstance(node, NodeObject), \
             'node must be a instance of a NodeObject.'
+        self.nodes_deleted.emit([node.id])
         self._undo_stack.push(NodeRemovedCmd(self, node))
 
     def delete_nodes(self, nodes):
@@ -536,8 +539,9 @@ class NodeGraph(QtCore.QObject):
         Args:
             nodes (list[NodeGraphQt.BaseNode]): list of node instances.
         """
+        self.nodes_deleted.emit([n.id for n in nodes])
         self._undo_stack.beginMacro('delete nodes')
-        [self.delete_node(n) for n in nodes]
+        [self._undo_stack.push(NodeRemovedCmd(self, n)) for n in nodes]
         self._undo_stack.endMacro()
 
     def all_nodes(self):
