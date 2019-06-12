@@ -4,7 +4,6 @@
 import setuptools
 import os
 from pip._internal.req import parse_requirements
-from NodeGraphQt import __version__ as version
 
 with open('README.md', 'r') as fh:
     long_description = fh.read()
@@ -18,12 +17,9 @@ classifiers = [
     'License :: OSI Approved :: MIT License',
     'Operating System :: OS Independent',
 ]
-
-def load_requirements(fname):
-    reqs = parse_requirements(fname, session="test")
-    return [str(ir.req) for ir in reqs]
-
-setuptools.setup(install_requires=load_requirements("requirements.txt"))
+requirements = ['PySide2>=5.12', 'Qt.py>=1.2.0.b2', 'python>=3.6']
+setuptools.setup(install_requires=requirements)
+from NodeGraphQt import __version__ as version
 setuptools.setup(
     name='NodeGraphQt',
     version=version,
