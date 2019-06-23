@@ -19,8 +19,8 @@ classifiers = [
 from NodeGraphQt._version import __version__ as version
 from pip._internal.req import parse_requirements
 
-# install_reqs = parse_requirements('requirements.txt', session='hack')
-# reqs = [str(ir.req) for ir in install_reqs]
+install_reqs = parse_requirements('requirements.txt', session='hack')
+reqs = [str(ir.req) for ir in install_reqs]
 
 setuptools.setup(
     name='NodeGraphQt',
@@ -30,7 +30,7 @@ setuptools.setup(
     description=description,
     long_description=long_description,
     long_description_content_type='text/markdown',
-    install_requires=[PySide2, Qt.py],
+    install_requires=reqs,
     url='https://github.com/jchanvfx/NodeGraphQt',    
     packages=setuptools.find_packages(exclude=["example_nodes"]),
     classifiers=classifiers,
