@@ -45,23 +45,23 @@ __all__ = [
     'NodeObject', 'NodeTreeWidget', 'Port', 'PropertiesBinWidget',
     'constants', 'setup_context_menu'
 ]
+if __name__ == "__main__":
+    try:
+        from Qt import QtWidgets, QtGui, QtCore, QtCompat
+    except ImportError as ie:
+        from .vendor.Qt import __version__ as qtpy_ver
+        from .vendor.Qt import QtWidgets, QtGui, QtCore, QtCompat
+        print('Cannot import "Qt.py" module falling back on '
+            '"NodeGraphQt.vendor.Qt ({})"'.format(qtpy_ver))
 
-try:
-    from Qt import QtWidgets, QtGui, QtCore, QtCompat
-except ImportError as ie:
-    from .vendor.Qt import __version__ as qtpy_ver
-    from .vendor.Qt import QtWidgets, QtGui, QtCore, QtCompat
-    print('Cannot import "Qt.py" module falling back on '
-          '"NodeGraphQt.vendor.Qt ({})"'.format(qtpy_ver))
+    from .base.graph import NodeGraph
+    from .base.node import NodeObject, BaseNode, BackdropNode
+    from .base.port import Port
+    from .base.menu import Menu, MenuCommand
 
-from .base.graph import NodeGraph
-from .base.node import NodeObject, BaseNode, BackdropNode
-from .base.port import Port
-from .base.menu import Menu, MenuCommand
+    # functions
+    from .base.actions import setup_context_menu
 
-# functions
-from .base.actions import setup_context_menu
-
-# widgets
-from .widgets.node_tree import NodeTreeWidget
-from .widgets.properties_bin import PropertiesBinWidget
+    # widgets
+    from .widgets.node_tree import NodeTreeWidget
+    from .widgets.properties_bin import PropertiesBinWidget
