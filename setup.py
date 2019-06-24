@@ -38,7 +38,6 @@ setuptools.setup(
     python_requires=">=3.6"
 )
 
-
 """
 python setup.py sdist
 sudo python setup.py install
