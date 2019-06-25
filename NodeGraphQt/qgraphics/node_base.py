@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from NodeGraphQt.Qtbinding import QtGui, QtCore, QtWidgets
+from NodeGraphQt.qtbinding import QtGui, QtCore, QtWidgets
 from NodeGraphQt.constants import (IN_PORT, OUT_PORT,
                                    NODE_WIDTH, NODE_HEIGHT,
                                    NODE_ICON_SIZE, ICON_NODE_BASE,

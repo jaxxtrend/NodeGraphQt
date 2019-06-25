@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from NodeGraphQt.Qtbinding import QtCore, QtGui, QtWidgets
+from NodeGraphQt.qtbinding import QtCore, QtGui, QtWidgets
 from NodeGraphQt.constants import Z_VAL_NODE_WIDGET, PIPE_SLICER_COLOR
 
 

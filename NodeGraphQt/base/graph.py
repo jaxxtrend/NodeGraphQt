@@ -4,7 +4,7 @@ import json
 import os
 import re
 
-from NodeGraphQt.Qtbinding import QtCore, QtWidgets
+from NodeGraphQt.qtbinding import QtCore, QtWidgets
 from NodeGraphQt.base.commands import (NodeAddedCmd,
                                        NodeRemovedCmd,
                                        NodeMovedCmd,
