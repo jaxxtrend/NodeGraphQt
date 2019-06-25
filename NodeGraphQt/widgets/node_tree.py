@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-from NodeGraphQt import QtWidgets, QtCore
+from NodeGraphQt.Qtbinding import QtWidgets, QtCore
 from NodeGraphQt.constants import DRAG_DROP_ID
 
 

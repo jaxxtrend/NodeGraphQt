@@ -13,3 +13,6 @@ docs/_build/
 dist
 *.egg-info
 *.json
+
+#virtualenv
+ENV/

@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from NodeGraphQt import QtGui, QtCore, QtWidgets
+from NodeGraphQt.Qtbinding import QtGui, QtCore, QtWidgets
 
 from NodeGraphQt.constants import (VIEWER_BG_COLOR,
                                    VIEWER_GRID_SIZE,

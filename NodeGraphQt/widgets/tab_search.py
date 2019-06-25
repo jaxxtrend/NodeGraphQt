@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from NodeGraphQt import QtCore, QtWidgets
+from NodeGraphQt.Qtbinding import QtCore, QtWidgets
 
 from NodeGraphQt.widgets.stylesheet import STYLE_TABSEARCH, STYLE_TABSEARCH_LIST
 

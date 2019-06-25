@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from NodeGraphQt import QtCore, QtWidgets
+from NodeGraphQt.Qtbinding import QtCore, QtWidgets
 
 from NodeGraphQt.constants import Z_VAL_NODE_WIDGET
 from NodeGraphQt.widgets.stylesheet import *

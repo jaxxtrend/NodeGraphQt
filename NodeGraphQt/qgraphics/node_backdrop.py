@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-from NodeGraphQt import QtGui, QtCore, QtWidgets
+from NodeGraphQt.Qtbinding import QtGui, QtCore, QtWidgets
 from NodeGraphQt.constants import (Z_VAL_PIPE,
                                    NODE_SEL_COLOR,
                                    NODE_SEL_BORDER_COLOR)

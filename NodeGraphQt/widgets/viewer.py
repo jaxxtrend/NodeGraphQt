@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 import os
 
-from NodeGraphQt import QtGui, QtCore, QtWidgets
+from NodeGraphQt.Qtbinding import QtGui, QtCore, QtWidgets
 from NodeGraphQt.constants import (IN_PORT, OUT_PORT,
                                    PIPE_LAYOUT_CURVED,
                                    PIPE_LAYOUT_STRAIGHT,

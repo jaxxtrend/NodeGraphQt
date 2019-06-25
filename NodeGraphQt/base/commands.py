@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from NodeGraphQt import QtWidgets
+from NodeGraphQt.Qtbinding import QtWidgets
 
 from NodeGraphQt.constants import IN_PORT, OUT_PORT
 

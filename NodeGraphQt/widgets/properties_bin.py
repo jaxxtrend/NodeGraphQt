@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from NodeGraphQt import QtWidgets, QtCore, QtGui, QtCompat
+from NodeGraphQt.Qtbinding import QtWidgets, QtCore, QtGui, QtCompat
 
 from NodeGraphQt.widgets.properties import NodePropWidget
 

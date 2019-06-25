@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+from NodeGraphQt import credentials as crds
+from pip._internal.req import parse_requirements
 import setuptools
 
 with open('README.md', 'r') as fh:
@@ -16,27 +18,21 @@ classifiers = [
     'Operating System :: OS Independent',
 ]
 
-from pip._internal.req import parse_requirements
-install_reqs = parse_requirements('requirements.txt', session='hack')
-reqs = [str(ir.req) for ir in install_reqs]
+install_requirements = parse_requirements('requirements.txt', session='session')
+requirements = [str(requirement.req) for requirement in install_requirements]
 
 setuptools.setup(
-    name='NodeGraphQt',
-    version='0.0.7',
-    author='Johnny Chan',
-    author_email='johnny@chantasticvfx.com',
+    name=str(crds.__module_name__),
+    version=str(crds.__version__),
+    author=str(crds.__author__),
+    author_email=str(crds.__email__),
     description=description,
     long_description=long_description,
     long_description_content_type='text/markdown',
-    install_requires=reqs,
-    url='https://github.com/jchanvfx/NodeGraphQt',    
+    install_requires=requirements,
+    url=str(crds.__url__),
     packages=setuptools.find_packages(exclude=["example_nodes"]),
     classifiers=classifiers,
     include_package_data=True,
     python_requires=">=3.6"
 )
-
-"""
-python setup.py sdist
-sudo python setup.py install
-"""
