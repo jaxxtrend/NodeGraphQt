@@ -3,11 +3,14 @@
 import os
 import sys
 
-from NodeGraphQt import (NodeGraph,
-                         BaseNode,
-                         BackdropNode,
-                         setup_context_menu)
-from NodeGraphQt import QtWidgets, QtCore, PropertiesBinWidget, NodeTreeWidget
+from NodeGraphQt import NodeGraph
+from NodeGraphQt import BaseNode
+from NodeGraphQt import BackdropNode
+from NodeGraphQt import NodeTreeWidget
+from NodeGraphQt import setup_context_menu
+from NodeGraphQt import PropertiesBinWidget
+from NodeGraphQt import QtCore
+from NodeGraphQt import QtWidgets
 
 # import example nodes from the "example_nodes" package
 from example_nodes import basic_nodes, widget_nodes
@@ -47,24 +50,23 @@ if __name__ == '__main__':
     viewer.resize(1100, 800)
     viewer.show()
 
-
     # show the properties bin when a node is "double clicked" in the graph.
     properties_bin = PropertiesBinWidget(node_graph=graph)
     properties_bin.setWindowFlags(QtCore.Qt.Tool)
+
     def show_prop_bin(node):
         if not properties_bin.isVisible():
             properties_bin.show()
     graph.node_double_clicked.connect(show_prop_bin)
 
-
     # show the nodes list when a node is "double clicked" in the graph.
     node_tree = NodeTreeWidget(node_graph=graph)
+
     def show_nodes_list(node):
         if not node_tree.isVisible():
             node_tree.update()
             node_tree.show()
     graph.node_double_clicked.connect(show_nodes_list)
-
 
     # registered nodes.
     reg_nodes = [
@@ -96,8 +98,8 @@ if __name__ == '__main__':
 
     # create example "TextInputNode".
     checkbox_node = graph.create_node('com.chantasticvfx.CheckboxNode',
-                                  name='checkbox node',
-                                  pos=[-480, -60])
+                                      name='checkbox node',
+                                      pos=[-480, -60])
 
     # create node with a combo box menu.
     menu_node = graph.create_node('com.chantasticvfx.DropdownMenuNode',
@@ -116,6 +118,5 @@ if __name__ == '__main__':
     foo_node.set_output(0, bar_node.input(2))
     menu_node.set_input(0, bar_node.output(1))
     bar_node.set_input(0, text_node.output(0))
-
 
     app.exec_()

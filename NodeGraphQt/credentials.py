@@ -6,4 +6,4 @@ __author__ = 'Johnny Chan'
 __email__ = 'http://chantasticvfx.com/contact'
 
 __module_name__ = 'NodeGraphQt'
-__url__ = 'https://github.com/jchanvfx/NodeGraphQt'
+__url__ = 'https://github.com/jaxxtrend/NodeGraphQt'

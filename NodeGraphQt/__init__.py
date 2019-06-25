@@ -42,6 +42,8 @@ from .base.actions import setup_context_menu
 from .widgets.node_tree import NodeTreeWidget
 from .widgets.properties_bin import PropertiesBinWidget
 
+from .qtbinding import QtCompat, QtCore, QtGui, QtWidgets
+
 __all__ = [
     'BackdropNode', 'BaseNode', 'Menu', 'MenuCommand', 'NodeGraph',
     'NodeObject', 'NodeTreeWidget', 'Port', 'PropertiesBinWidget',

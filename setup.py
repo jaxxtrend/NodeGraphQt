@@ -3,7 +3,7 @@
 
 from NodeGraphQt import credentials as crds
 from pip._internal.req import parse_requirements
-import setuptools
+from setuptools import find_packages, setup
 
 with open('README.md', 'r') as fh:
     long_description = fh.read()
@@ -18,10 +18,11 @@ classifiers = [
     'Operating System :: OS Independent',
 ]
 
-install_requirements = parse_requirements('requirements.txt', session='session')
+install_requirements = parse_requirements(
+    'requirements.txt', session='session')
 requirements = [str(requirement.req) for requirement in install_requirements]
 
-setuptools.setup(
+setup(
     name=str(crds.__module_name__),
     version=str(crds.__version__),
     author=str(crds.__author__),
@@ -31,7 +32,7 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     install_requires=requirements,
     url=str(crds.__url__),
-    packages=setuptools.find_packages(exclude=["example_nodes"]),
+    packages=find_packages(exclude=["example_nodes"]),
     classifiers=classifiers,
     include_package_data=True,
     python_requires=">=3.6"
