@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-from NodeGraphQt import credentials as crds
+import .credentials as crds
 from pip._internal.req import parse_requirements
 from setuptools import find_packages, setup
 
